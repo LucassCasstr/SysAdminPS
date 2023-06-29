@@ -8,3 +8,7 @@ PowerShell
 **FolderMonitoring.ps1**
 
 - Consegue monitorar pastas, definindo o máximo de dias que ela pode ficar sem receber arquivos novos e alertando por meio de e-mails quando esse limite é atingido.
+
+**WSUSConnect.ps1**
+
+- Força uma nova conexão com o servidor WSUS
