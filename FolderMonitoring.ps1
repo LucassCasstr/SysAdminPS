@@ -2,26 +2,24 @@
 $dataUltimoBackup = ($arquivosNovos | Sort-Object -Property LastWriteTime -Descending)[0].LastWriteTime
 $smtpServer = "smtp.gmail.com" # Endereço do servidor SMTP
 $smtpPort = 587 # Porta do servidor SMTP
-$smtpUsername = "backupalert2@gmail.com" # Nome de usuário do e-mail remetente
-$smtpPassword = "ubfpadqlfihgylsk" # Senha do e-mail remetente
-$fromEmail = "backupalert2@gmail.com" # Endereço de e-mail remetente
-$toEmail = "lucas.castro@tactium.com.br","wesley.rocha@tactium.com.br" # Endereço de e-mail do destinatário
-$subjectErro = "BACKUP FALHO DO GITLAB" # Assunto do e-mail
-$subjectSucesso = "BACKUP OK DO GITLAB"
-$bodyErro = "A PASTA DE BACKUP DO GITLAB ESTA A MAIS DE UM DIA SEM RECEBER NENHUM BACKUP
-- VERIFIQUE O SERVIDOR LINUX E A CRONTAB DE MONTAGEM DE DISCO
+$smtpUsername = "XXXXXXXX@gmail.com" # Nome de usuário do e-mail remetente
+$smtpPassword = "XXXXXXXX" # Senha do e-mail remetente
+$fromEmail = "XXXXXXXX@gmail.com" # Endereço de e-mail remetente
+$toEmail = "XXXXXXXXXXXXXXXX" # Endereço de e-mail do destinatário
+$subjectErro = "BACKUP FALHO" # Assunto do e-mail
+$subjectSucesso = "BACKUP OK"
+$bodyErro = "A PASTA XXXXXXXX ESTA A MAIS DE UM DIA SEM RECEBER NENHUM BACKUP
+XXXXXXXXXXXXXXXXXXXXXXXX
 
-LOCAL DA PASTA: E:\SOFTIUM\GitLab\backups
-
-DATA DO ULTIMO BACKUP: $dataUltimoBackup
+DATA DO ULTIMO ARQUIVO: $dataUltimoBackup
 
 "
-$bodySucesso = "A PASTA DO GITLAB ESTA RECEBENDO OS BACKUPS
+$bodySucesso = "A PASTA XXXXXXXX ESTA RECEBENDO OS BACKUPS
 DATA DO ULTIMO BACKUP: $dataUltimoBackup
 "
 
 
-$pasta = "E:\SOFTIUM\GitLab\backups"
+$pasta = "XXXXXXXXXXXXXXXX"
 
 
 $dataAtual = Get-Date
