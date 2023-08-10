@@ -12,3 +12,7 @@ PowerShell
 **WSUSConnect.ps1**
 
 - Força uma nova conexão com o servidor WSUS
+
+**MonitoraWSUS.ps1**
+
+- Verifica se há atualizações críticas necessárias aguardando para serem aprovadas no WSUS 
