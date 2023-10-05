@@ -17,7 +17,7 @@ MUITO BEM!"
 
 function List{
 
-       $updates = Get-WsusUpdate -Classification Critical -Approval Unapproved -Status Needed
+       $updates = Get-WsusUpdate -Classification All -Approval Unapproved -Status Needed
 
     if ($updates.Count -eq 0) {
         Write-Host "Não há atualizações necessárias" -ForegroundColor Green
