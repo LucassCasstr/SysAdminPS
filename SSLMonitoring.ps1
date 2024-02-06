@@ -1,3 +1,7 @@
+# Aviso: A variável $CRED está sendo utilizada para armazenar as credenciais.
+# Certifique-se de que a credencial exista no cofre de credenciais do Windows.
+
+
 # Data do Certificado
 function Get-SSLCertificateExpiryDate {
     param (
@@ -34,9 +38,10 @@ function Send-Email {
 
  
 
-    $sender_email = "E-MAIL DO REMETENTE"
-    $sender_password = ConvertTo-SecureString "ALTERE AQUI A SENHA" -AsPlainText -Force
-    $receiver_email = @("E-MAIL DO DESTINATÁRIO")
+    $sender_email = "XXXXXX@gmail.com"
+    $cred = Get-StoredCredential -Target 'GMAIL'
+    $senha = $($cred.GetNetworkCredential().Password);
+    $receiver_email = @("XXXXXX@XXXXXX.com.br")
     $smtp_server = "smtp.gmail.com"
     $smtp_port = 587
     $msg = [System.Net.Mail.MailMessage]::new()
@@ -46,7 +51,7 @@ function Send-Email {
     $msg.Body = $message
     $smtp = [System.Net.Mail.SmtpClient]::new($smtp_server, $smtp_port)
     $smtp.EnableSsl = $true
-    $smtp.Credentials = [System.Net.NetworkCredential]::new($sender_email, $sender_password)
+    $smtp.Credentials = [System.Net.NetworkCredential]::new($sender_email, $senha)
 
 
     try {
@@ -63,7 +68,7 @@ function Send-Email {
 
 try {
     # SUBSTITUA AQUI OS HOSTS QUE DEVEM TER A DATA DOS CERTIFICADOS VALIDADAS
-    $websites = "XXXXXXXXXXXXXXXXXXXXXXXXXXXX.com.br", "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.com.br:9092"
+    $websites = "XXXXXX.com.br", "XXXXX.com.br:9092"
 
     # Não sei o que isso faz KKKKKKKKKKKKK
     $results = @()
@@ -107,5 +112,3 @@ try {
 } catch {
     Write-Host "Erro ao ler o arquivo de sites: $_"
 }
-
- 
